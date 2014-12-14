@@ -1,4 +1,4 @@
- {% load static %}<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <!-- saved from url=(0050)http://getbootstrap.com/examples/jumbotron-narrow/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{% static "img/favicon.ico" %}">
 
-    <title>index</title>
+    <title>item</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "dist/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -26,45 +26,27 @@
         <h3 class="text-muted">hw12_v_kuzin</h3>
       </div>
 
-      
+  
+      <h1>Название курса: {{ course.name }}</h1>
 
-      <h1> рабочие страницы </h1>
-
+      <h2>Язык програvмирования: {{ course.tehnology }}</h2>
 
       <ul class="list-group">
 
-        
-         <li class="list-group-item">
-           <a href="/students/">
-           Список студентов 
-           </a>
-         </li>
-
-         <li class="list-group-item">
-           <a href="/courses/">
-           Список курсов 
-           </a>
-         </li>
-
-          <li class="list-group-item">
-           <a href="/coaches/">
-           Список преподавателей 
-           </a>
-         </li>
-
-          <li class="list-group-item">
-           <a href="/admin/">
-           Работа с базой данных 
-           </a>
-         </li>
-        
+         
+         <li class="list-group-item">Описание: {{ course.description }}</li>
+         <li class="list-group-item">Учитель: {{ course.teacher }}</li>
+         <li class="list-group-item">Асистент: {{ course.assistent }}</li>
+         <li class="list-group-item">Дата начала: {{ course.date_start }}</li>
+         <li class="list-group-item">Дата окончания: {{ course.date_end }}</li>
 
       </ul>
 
+            
 
     </div>
 
-
+    <p align="center"><a href="/courses/" class="btn btn-lg btn-default">к списку</a></p>
 
     </div> <!-- /container -->
 

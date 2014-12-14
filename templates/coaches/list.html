@@ -1,4 +1,4 @@
- {% load static %}<!DOCTYPE html>
+{% load static %}<!DOCTYPE html>
 <!-- saved from url=(0050)http://getbootstrap.com/examples/jumbotron-narrow/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{% static "img/favicon.ico" %}">
 
-    <title>index</title>
+    <title>list</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "dist/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -28,43 +28,22 @@
 
       
 
-      <h1> рабочие страницы </h1>
+      <h2>Список преподавателей</h2>
 
+      <ol class="list-group">
 
-      <ul class="list-group">
-
-        
-         <li class="list-group-item">
-           <a href="/students/">
-           Список студентов 
+        {% for coach in coaches %}
+         <li>
+           <a href="/coaches/{{ coach.id }}/">
+           {{ coach.surname }} {{ coach.name }} 
            </a>
          </li>
+        {% endfor %}
 
-         <li class="list-group-item">
-           <a href="/courses/">
-           Список курсов 
-           </a>
-         </li>
-
-          <li class="list-group-item">
-           <a href="/coaches/">
-           Список преподавателей 
-           </a>
-         </li>
-
-          <li class="list-group-item">
-           <a href="/admin/">
-           Работа с базой данных 
-           </a>
-         </li>
-        
-
-      </ul>
+      </ol>
 
 
     </div>
-
-
 
     </div> <!-- /container -->
 
