@@ -3,6 +3,6 @@ from courses.views import courses_list, courses_item
 
 
 urlpatterns = patterns('',
-    url(r'^$', courses_list),
-    url(r'^(?P<course_id>\d+)/$', courses_item),
+    url(r'^$', courses_list, name="courses_list"),
+    url(r'^(?P<course_id>\d+)/$', courses_item, name="course_item"),
 )

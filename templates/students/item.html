@@ -1,52 +1,37 @@
-{% load static %}<!DOCTYPE html>
-<!-- saved from url=(0050)http://getbootstrap.com/examples/jumbotron-narrow/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{% static "img/favicon.ico" %}">
+{% extends "students/base.html" %}
 
-    <title>item</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static "dist/css/bootstrap.min.css" %}" rel="stylesheet">
+  {% block content%}
 
-    <!-- Custom styles for this template -->
-    <link href={% static "dist/css/jumbotron-narrow.css" %} rel="stylesheet">
-
-  </head>
-
-  <body>
-
-    <div class="container">
-      <div class="header">
-
-        <h3 class="text-muted">hw12_v_kuzin</h3>
-      </div>
-
-  
-      <h1>Студент: {{ student.surname }} {{ student.name }}</h1>
+    <h1>Студент: {{ student.surname }} {{ student.name }}</h1>
 
       <ul class="list-group">
-
-        
          <li class="list-group-item">Дата рождения: {{ student.date_of_birth }}</li>
          <li class="list-group-item">Imail: {{ student.email }}</li>
          <li class="list-group-item">Телефон: {{ student.phone }}</li>
          <li class="list-group-item">Пакет: {{ student.package }}</li>
-        
+         <li class="list-group-item">Курс:<br>
+                    {% for course in student.courses.all %}
+                        <a href="{% url 'course_item' course.id %}">
+                            {{ course.name }}<br>
+                        </a>
+                    {% endfor %}
+          </li>
          <li class="list-group-item">Dossier: {{ student.dossier }}</li>
-
       </ul>
 
-            
+    <div>
 
-    </div>
+    <p align="center"><a href="{% url 'students_list' %}" class="btn btn-lg btn-default">К списку</a></p>
 
-    <p align="center"><a href="/students/" class="btn btn-lg btn-default">к списку</a></p>
+    </div>  
+     
+  {% endblock %}
 
-    </div> <!-- /container -->
 
-</body></html>
+  {% block gotostart%}
+    <p align="center"><a href="{% url 'home' %}" class="btn btn-lg btn-default">Домой</a></p>  
+  {% endblock %}
+
+
+

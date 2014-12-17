@@ -1,52 +1,54 @@
-{% load static %}<!DOCTYPE html>
-<!-- saved from url=(0050)http://getbootstrap.com/examples/jumbotron-narrow/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{% static "img/favicon.ico" %}">
-
-    <title>list</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{% static "dist/css/bootstrap.min.css" %}" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href={% static "dist/css/jumbotron-narrow.css" %} rel="stylesheet">
-
-  </head>
-
-  <body>
-
-    <div class="container">
-      <div class="header">
-
-        <h3 class="text-muted">hw12_v_kuzin</h3>
-      </div>
-
-      
-
-      <h1>Список студентов</h1>
-
-      <ul class="list-group">
-
-        {% for student in students %}
-         <li class="list-group-item">
-           <a href="/students/{{ student.id }}/">
-           {{ student.surname }} {{ student.name }} 
-           </a>
-         </li>
-        {% endfor %}
-
-      </ul>
+{% extends "students/base.html" %}
 
 
-    </div>
+  {% block content%}
+
+    <h1>Список студентов</h1>
 
 
+ <!-- Table -->
+    <table class="table">
+        <thead>
+         <tr>
+           <th>#</th>
+           <th>электронная почта</th>
+           <th>Курс</th>
+         </tr>
+       </thead>
 
-    </div> <!-- /container -->
+     <tbody>
 
-</body></html>
+     {% for student in students %}
+         <tr>
+                
+           <td> 
+            <a href="{% url 'students_item' student.id %}">
+              {{ student.surname }} {{ student.name }}
+            </a>
+           </td>
+                
+           <td>{{ student.phone }} </td>
+           <td>{{ student.email }} </td>
+               
+           <td> 
+           {% for course in student.courses.all %}
+                   <a href="{% url 'course_item' course.id %}">
+                       {{ course.name }}<br>
+                   </a>
+               {% endfor %}
+           </td>
+          </tr>
+         {% endfor %}
+             
+      </tbody>  
+    
+     </table>
+   
+  {% endblock %} 
+
+
+  {% block gotostart%}
+    <p align="center"><a href="{% url 'home' %}" class="btn btn-lg btn-default">Домой</a></p>  
+  {% endblock %} 
+
+

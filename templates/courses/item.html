@@ -1,39 +1,14 @@
-{% load static %}<!DOCTYPE html>
-<!-- saved from url=(0050)http://getbootstrap.com/examples/jumbotron-narrow/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{% static "img/favicon.ico" %}">
+{% extends "courses/base.html" %}
 
-    <title>item</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static "dist/css/bootstrap.min.css" %}" rel="stylesheet">
+  {% block content%}
 
-    <!-- Custom styles for this template -->
-    <link href={% static "dist/css/jumbotron-narrow.css" %} rel="stylesheet">
+     <h1>Название курса: {{ course.name }}</h1>
 
-  </head>
-
-  <body>
-
-    <div class="container">
-      <div class="header">
-
-        <h3 class="text-muted">hw12_v_kuzin</h3>
-      </div>
-
-  
-      <h1>Название курса: {{ course.name }}</h1>
-
-      <h2>Язык програvмирования: {{ course.tehnology }}</h2>
+      <h2>Язык программирования: {{ course.tehnology }}</h2>
 
       <ul class="list-group">
 
-         
          <li class="list-group-item">Описание: {{ course.description }}</li>
          <li class="list-group-item">Учитель: {{ course.teacher }}</li>
          <li class="list-group-item">Асистент: {{ course.assistent }}</li>
@@ -42,12 +17,13 @@
 
       </ul>
 
-            
-
     </div>
 
-    <p align="center"><a href="/courses/" class="btn btn-lg btn-default">к списку</a></p>
+    <p align="center"><a href="{% url 'courses_list' %}" class="btn btn-lg btn-default">к списку</a></p>
 
-    </div> <!-- /container -->
+  {% endblock %}  
 
-</body></html>
+
+  {% block gotostart%}
+    <p align="center"><a href="{% url 'home' %}" class="btn btn-lg btn-default">Домой</a></p>  
+  {% endblock %}
