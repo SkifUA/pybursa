@@ -5,19 +5,33 @@
 
     <h2>Список преподавателей</h2>
 
-      <ol class="list-group">
+      <table class="table"><thead>
+              <tr>
+                
+                <th>Преподаватель</th>
+                <th></th>
+              </tr>
+            </thead>
 
-        {% for coach in coaches %}
-         <li>
-           <a href="{% url 'coach_item' coach.id %}">
-           {{ coach.surname }} {{ coach.name }} 
-           </a>
-         </li>
-        {% endfor %}
+             <tbody>
 
-      </ol>
+             {% for coach in coaches %}
+              <tr>
+                <td><a href="{% url 'coaches_item' coach.id %}">
+                    {{ coach.surname }} {{ coach.name }} 
+                    </a> 
+                </td>
+                
+                <td><a href="{% url 'coaches_form' coach.id %}">редактировать</a></td>
+                
+               </tr>
+              {% endfor %}
 
-    </div>
+            </tbody>  
+    
+        </table>
+
+      <p> <a href="{% url 'coaches_add' %}">Добавить преподавателя</a></p>
 
   {% endblock %}  
 

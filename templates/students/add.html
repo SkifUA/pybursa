@@ -1,0 +1,36 @@
+{% extends "students/base.html" %}
+
+
+  {% block content %}
+
+    <h2 align="center"> {{ title }} </h2>
+    <form method ='post'>
+
+
+
+     {% for field in form %}
+    <div >
+        {{ field.errors }}
+        {{ field.label_tag }} {{ field }}
+    </div>
+     {% endfor %}
+     {% csrf_token %}
+      
+     
+    
+    <input type="submit"/>
+
+    </form>
+
+    <div>
+
+    <p align="center"><a href="{% url 'students_list' %}" class="btn btn-lg btn-default">К списку</a></p>
+
+    </div>  
+  
+  {% endblock %}
+
+
+  {% block gotostart%}
+    <p align="center"><a href="{% url 'home' %}" class="btn btn-lg btn-default">Домой</a></p>  
+  {% endblock %}

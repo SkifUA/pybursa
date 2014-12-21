@@ -1,0 +1,64 @@
+{% extends "students/base.html" %}
+
+
+  {% block content %}
+
+    <h2 align="center"> {{ title }} </h2>
+    <form method ='post'>
+
+    {{ form.non_field_errors }}
+    {% csrf_token %}
+       <div>
+        {{ form.name.errors }}
+           <label for="name">name:</label>
+        {{ form.name }}<br/>
+
+        {{ form.surname.errors }}
+           <label for="name">surname:</label>
+        {{ form.surname }}<br/>
+
+        {{ form.date_of_birth.errors }}
+           <label for="name">date of birth:</label>
+        {{ form.date_of_birth }}<br/>
+
+        {{ form.email.errors }}
+           <label for="name">email:</label>
+        {{ form.email }}<br/>
+
+        {{ form.phone.errors }}
+           <label for="name">phone:</label>
+        {{ form.phone }}<br/>
+
+        {{ form.package.errors }}
+           <label for="name">package:</label>
+        {{ form.package }}<br/>
+
+        {{ form.courses.errors }}
+           <label for="name">courses:</label>
+        {{ form.courses }}<br/>
+
+        {{ form.dossier.errors }}
+           <label for="name">dossier:</label>
+        {{ form.dossier }}<br/>
+
+       </div>
+
+    <input type="submit"/>
+
+    </form>
+
+    <div>
+
+    <p align="center"><a href="{% url 'students_list' %}" class="btn btn-lg btn-default">К списку</a></p>
+
+    </div>  
+  
+  {% endblock %}
+
+
+  {% block gotostart%}
+    <p align="center"><a href="{% url 'home' %}" class="btn btn-lg btn-default">Домой</a></p>  
+  {% endblock %}
+
+
+

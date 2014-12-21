@@ -5,14 +5,13 @@
 
     <h1>Список студентов</h1>
 
-
  <!-- Table -->
     <table class="table">
         <thead>
          <tr>
            <th>#</th>
            <th>электронная почта</th>
-           <th>Курс</th>
+           <th>курс</th>
          </tr>
        </thead>
 
@@ -22,27 +21,34 @@
          <tr>
                 
            <td> 
-            <a href="{% url 'students_item' student.id %}">
+              <a href="{% url 'students_item' student.id %}">
               {{ student.surname }} {{ student.name }}
-            </a>
-           </td>
-                
-           <td>{{ student.phone }} </td>
-           <td>{{ student.email }} </td>
-               
+              </a>
+           </td>    
+           <td>{{ student.email }} </td> 
            <td> 
-           {% for course in student.courses.all %}
-                   <a href="{% url 'course_item' course.id %}">
-                       {{ course.name }}<br>
-                   </a>
+               {% for course in student.courses.all %}
+                <a href="{% url 'course_item' course.id %}">
+                    {{ course.name }}<br>
+                </a>
                {% endfor %}
            </td>
+           <td> 
+              <a href="{% url 'students_form' student.id%}">edit</a>
+           </td>
+           <td> 
+              <a href="{% url 'students_delete' student.id%}">delete</a>
+           </td>
+
           </tr>
-         {% endfor %}
-             
+
+      {% endfor %}
+      
       </tbody>  
-    
+
      </table>
+
+         <p><a href="{% url 'students_new' %}">добавить студента</a></p> 
    
   {% endblock %} 
 

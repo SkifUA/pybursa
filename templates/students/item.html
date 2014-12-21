@@ -2,9 +2,11 @@
 
 
   {% block content%}
-
-    <h1>Студент: {{ student.surname }} {{ student.name }}</h1>
-
+ 
+   
+    <h1>Студент: {{ student.surname }} {{ student.name }} </h1>
+        
+           <p><a href="{% url 'students_form' student.id %}">редактировать</a></p>
       <ul class="list-group">
          <li class="list-group-item">Дата рождения: {{ student.date_of_birth }}</li>
          <li class="list-group-item">Imail: {{ student.email }}</li>
@@ -25,9 +27,8 @@
     <p align="center"><a href="{% url 'students_list' %}" class="btn btn-lg btn-default">К списку</a></p>
 
     </div>  
-     
+    
   {% endblock %}
-
 
   {% block gotostart%}
     <p align="center"><a href="{% url 'home' %}" class="btn btn-lg btn-default">Домой</a></p>  

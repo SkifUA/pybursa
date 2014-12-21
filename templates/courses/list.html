@@ -14,6 +14,7 @@
                 <th>Наименование курса</th>
                 <th>Дата начала</th>
                 <th>Дата окончания</th>
+                <th></th>
               </tr>
             </thead>
 
@@ -29,6 +30,7 @@
                 </td>
                 <td>{{ course.date_start }} </td>
                 <td>{{ course.date_end }} </td>
+                <td> <a href="{% url 'courses_form' course.id %}">редактировать</a> </td>
                </tr>
               {% endfor %}
 
@@ -36,6 +38,7 @@
     
         </table>
        </div>
+       <p><a href="{% url 'courses_add' %}">Добавить курс</a></p>
     </div>
 
 {% endblock %} 

@@ -1,0 +1,28 @@
+{% extends "coaches/base.html" %}
+
+
+  {% block content %}
+
+    <h2 align="center"> {{ title }} </h2>
+    <form method ='post'>
+
+     {{ form.as_p }} 
+      
+     {% csrf_token %}
+    
+    <input type="submit"/>
+
+    </form>
+
+    <div>
+
+    <p align="center"><a href="{% url 'coaches_list' %}" class="btn btn-lg btn-default">К списку</a></p>
+
+    </div>  
+  
+  {% endblock %}
+
+
+  {% block gotostart%}
+    <p align="center"><a href="{% url 'home' %}" class="btn btn-lg btn-default">Домой</a></p>  
+  {% endblock %}

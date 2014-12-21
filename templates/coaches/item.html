@@ -4,6 +4,7 @@
   {% block content%} 
 
       <h1>Преподаватель: {{ coach.surname }} {{ coach.name }}</h1>
+      <p><a href="{% url 'coaches_form' coach.id %}">редактировать</a></p>
 
       <ol type="1" class="list-group">
 
