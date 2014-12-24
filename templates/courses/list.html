@@ -5,7 +5,7 @@
 
        <div class="panel panel-default">
          <!-- Default panel contents -->
-       <div class="panel-heading">Список курсов</div>
+       <div class="panel-heading">Список курсов {{ courses|length }}</div>
        
              <!-- Table -->
             <table class="table"><thead>
@@ -30,7 +30,8 @@
                 </td>
                 <td>{{ course.date_start }} </td>
                 <td>{{ course.date_end }} </td>
-                <td> <a href="{% url 'courses_form' course.id %}">редактировать</a> </td>
+                <td> <a href="{% url 'courses_form' course.id %}">edit</a> </td>
+                <td><a href="{% url 'course_delete' course.id %}">delete</a></td>
                </tr>
               {% endfor %}
 

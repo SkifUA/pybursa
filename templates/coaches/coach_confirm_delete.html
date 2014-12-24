@@ -1,0 +1,17 @@
+
+
+{% extends "courses/base.html" %}
+
+
+{% block content %}
+
+
+<form class="btn btn-lg btn-default" action="" method="post">{% csrf_token %}
+    <p>Вы уверены, что нужно удалит: "{{ object }}"?</p>
+    <input type="submit" value="Удалить" />
+    <p><a href="{% url 'coaches_list' %}" >Отменить</a></p>
+
+
+</form>
+
+{% endblock %}

@@ -1,50 +1,55 @@
-from django.shortcuts import render, redirect
-from coaches.models import Coach
-
 from django import forms
 
+from coaches.models import Coach
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import FormView, CreateView, UpdateView, DeleteView
+
+
 class CoachModelForm(forms.ModelForm):
-    ''' make form for add new row '''
+    
     class Meta:
         model = Coach
 
 
-def coaches_list(request):
-    coaches = Coach.objects.all()
-    return render(request, 'coaches/list.html', {'coaches': coaches})
+class CoachList(ListView):
+    template_name = "coaches/list.html"
+    model = Coach
+    context_object_name = "coaches"
+
+    
+class CoachView(DetailView):
+    template_name = "coaches/item.html"
+    model = Coach
+    context_object_name = "coach"
 
 
-def coaches_item(request, coach_id):
-    coach = Coach.objects.get(id=coach_id)
-    return render(request, 'coaches/item.html', {'coach': coach})
+class CoachCreatView(CreateView):
+    template_name = 'coaches/form.html'
+    form_class = CoachModelForm 
+    model = Coach
+    success_url = '/coaches/'
+
+    def get_context_data(self, **kwargs):
+        context = super(CoachCreatView, self).get_context_data(**kwargs)
+        context['title'] = "Create item"
+        return context
 
 
-def coaches_form(request, coach_id):
+class CoachUpdateView(UpdateView):
+    template_name = 'coaches/form.html'
+    form_class = CoachModelForm 
+    model = Coach
+    success_url = '/coaches/'
 
-	coach = Coach.objects.get(id=coach_id)
-	title = "Edit item"
-	if request.method == 'POST':
-		form = CoachModelForm(request.POST, instance=coach)
-		if form.is_valid():
-			coach = form.save()
-			return redirect('coaches_form', coach.id)       
-	else:
-		form = CoachModelForm(instance=coach)
-       
-	return render(request, 'coaches/form.html', {'form': form, 'title': title})
+    def get_context_data(self, **kwargs):
+        context = super(CoachUpdateView, self).get_context_data(**kwargs)
+        context['title'] = "Edit item"
+        return context
 
 
-def coaches_add(request):
+class CoachDelete(DeleteView):
+    model = Coach
+    success_url = '/coaches/'
 
-    title = "Add item"
-
-    if request.method == 'POST':
-        form = CoachModelForm(request.POST)
-        if form.is_valid():
-        	
-            coach = form.save()
-            return redirect('coaches_form', coach.id)       
-    else:
-        form = CoachModelForm()
-
-    return render(request, 'coaches/form.html', {'form': form, 'title': title})
+    

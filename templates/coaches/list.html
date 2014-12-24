@@ -22,7 +22,8 @@
                     </a> 
                 </td>
                 
-                <td><a href="{% url 'coaches_form' coach.id %}">редактировать</a></td>
+                <td><a href="{% url 'coaches_form' coach.id %}">edit</a></td>
+                <td><a href="{% url 'coach_delete' coach.id %}">delete</a></td>              
                 
                </tr>
               {% endfor %}

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from students.models import Student
 
 from django import forms
@@ -17,11 +17,13 @@ def students_list(request):
 
 
 def students_item(request, student_id):
-    student = Student.objects.get(id=student_id)
+    #student = Student.objects.get(id=student_id)
+    student = get_object_or_404(Student, id=student_id) 
     return render(request, 'students/item.html', {'student': student})
 
 def students_form(request, student_id):
-    student = Student.objects.get(id=student_id)
+    #student = Student.objects.get(id=student_id)
+    student = get_object_or_404(Student, id=student_id) 
     title = "Edit item"
 
     if request.method == 'POST':
