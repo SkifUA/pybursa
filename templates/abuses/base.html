@@ -1,4 +1,8 @@
 {% load static %}<!DOCTYPE html>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+
 <!-- saved from url=(0050)http://getbootstrap.com/examples/jumbotron-narrow/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
@@ -9,6 +13,7 @@
     <link rel="icon" href="{% static "img/favicon.ico" %}">
 
     <title>list</title>
+   
 
     <!-- Bootstrap core CSS -->
     <link href="{% static "dist/css/bootstrap.min.css" %}" rel="stylesheet">
@@ -19,8 +24,21 @@
   </head>
 
   <body>
+  
+  <form align="right" action="{% url 'set_language' %}" method="post">
+      {{ LANGUAGE_CODE }}
+       {% csrf_token %}
+        
+         <select name="language">
+           <option selected="selected" disabled>{% trans "select language" %}</option>
+           <option value="ru">RU</option>
+           <option value="en">EN</option>
+         </select>
+         <input type="submit" value="go" />
+    </form>
      <div class="container">
        <div class="header">
+         <h2 align="center"> {% trans "Talk about all - help yourself!!!" %} </h2>
          <h4 class="text-muted">hw16_v_kuzin</h4>
        </div>
 

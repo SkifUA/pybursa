@@ -33,6 +33,7 @@ class CourseCreatView(CreateView):
     success_url = '/courses/'
 
     def get_context_data(self, **kwargs):
+        #print kwargs
         context = super(CourseCreatView, self).get_context_data(**kwargs)
         context['title'] = "Create item"
         return context

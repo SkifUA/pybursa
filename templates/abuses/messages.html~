@@ -1,0 +1,27 @@
+{% extends "abuses/base.html" %}
+
+
+  {% block content %}
+
+  <div class="alert alert-success" role="alert">
+
+  
+      <ul class="messages">
+        
+           <li>Yor messange send</li>
+        
+      </ul>
+  
+
+  </div>  
+
+    <p align="center"><a href="{% url 'abuses_add' %}" class="btn btn-lg btn-default">Понравилось</a></p>
+
+    
+  
+  {% endblock %}
+
+
+  {% block gotostart%}
+    <p align="center"><a href="{% url 'home' %}" class="btn btn-lg btn-default">Домой</a></p>  
+  {% endblock %}
