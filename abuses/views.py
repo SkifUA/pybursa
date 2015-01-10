@@ -9,6 +9,9 @@ from abuses.models import Abuse
 from django.views.generic.edit import FormView
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
+from datetime import datetime, date
+import logging
+logger = logging.getLogger(__name__)
 
 
 class AbuseModelForm(forms.ModelForm):
@@ -21,7 +24,7 @@ class AbuseFormView(FormView):
     template_name = 'abuses/form.html'
     form_class = AbuseModelForm 
     model = Abuse 
-    success_url = 'abuses/add/' 
+    #success_url = 'abuses/add/' 
 
     def form_valid(self, form):
         obj=form.save()
@@ -37,36 +40,8 @@ class AbuseFormView(FormView):
          ' + student_name #+ ' ' + theme #+ '. Ваш студент.'
 
         send_mail(theme, text, email, ['django_test@mail.ru'])
+        logger.debug(str(datetime.today()) + ":abuses-DEBUG-send message to " + teacher_name)
         messages.success(self.request, _('Message was send.'))
-        return redirect('abuses_add')
-
         
-
-    
-#class MessageForm(forms.Form):
-#    email = forms.EmailField()
-#    theme = forms.CharField(max_length=200)
-#    body = forms.CharField(widget=forms.Textarea)
-
-#def send_message(request):
-#    if request.method == 'POST':
-#        form = MessageForm(request.POST)
-#        if form.is_valid():
-#            email = form.cleaned_data['email']
-#            theme = form.cleaned_data['theme']
-#            body = form.cleaned_data['body']
-
-#            send_mail(theme, body, email, ['test_django@mail.ru'])
-#            messages.success(request,'Message was send.')
-#            return redirect('send_message')
-            
-#    else:
-#        form = MessageForm()
-
-#    return render(request, 'abuses/form.html', {'form': form})
-
-
-#def start_message(request):
-    #student = Student.objects.get(id=student_id)
-    #student = get_object_or_404(Student, id=student_id) 
-#    return render(request, 'abuses/start.html')
+        return redirect('abuses_add')
+        

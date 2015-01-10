@@ -101,6 +101,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = ''
+STATIC_ROOT = ''
+
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = '2525'
 EMAIL_HOST_USER = 'django_test@mail.ru'
@@ -108,3 +111,37 @@ EMAIL_HOST_PASSWORD = '123456789o'
 EMAIL_USE_TLS = True
 #DEFAULT_FROM_EMAIL = 'django_test@mail.ru'
 #SERVER_EMAIL = 'django_test@mail.ru'
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
+        }
+    },
+    'loggers': {
+        'students': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+        'courses': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+        'coaches': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+        'abuses': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+        },
+    },
+}
+
+try:
+    from local_settings import *
+except ImportError:
+    print "Warning! local_settings are not defined!"

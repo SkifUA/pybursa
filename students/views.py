@@ -1,7 +1,12 @@
+
+from datetime import datetime, date
 from django.shortcuts import render, redirect, get_object_or_404
 from students.models import Student
 
 from django import forms
+
+import logging
+logger = logging.getLogger(__name__)
 
 
 class StudentModelForm(forms.ModelForm):
@@ -17,16 +22,16 @@ def students_list(request):
 
 
 def students_item(request, student_id):
-    #student = Student.objects.get(id=student_id)
     student = get_object_or_404(Student, id=student_id) 
     return render(request, 'students/item.html', {'student': student})
 
+
 def students_form(request, student_id):
-    #student = Student.objects.get(id=student_id)
     student = get_object_or_404(Student, id=student_id) 
     title = "Edit item"
 
     if request.method == 'POST':
+        logger.debug(str(datetime.today()) + ":student-DEBUG-edit student id= " + str(student_id))
         form = StudentModelForm(request.POST, instance=student)
         if form.is_valid():
             student = form.save()
@@ -43,6 +48,7 @@ def students_new(request):
         form = StudentModelForm(request.POST)
         if form.is_valid():
             student = form.save()
+            logger.debug(str(datetime.today()) + ":student-DEBUG-add student id= " + str(student.id))
             return redirect('students_form', student.id)       
     else:
         form = StudentModelForm()
@@ -51,7 +57,8 @@ def students_new(request):
 
 
 def students_delete(request, student_id):
-    
-    Student.objects.get ( id=student_id ).delete() 
+    logger.warning(str(datetime.today()) + ":student-WARNING-delete student id= " + str(student_id))
+    Student.objects.get ( id=student_id ).delete()
+     
         
     return redirect('students_list')

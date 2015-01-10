@@ -2,7 +2,7 @@ from django.db import models
 
 class Addres(models.Model):
 
-    post_index = models.IntegerField(max_length=8, blank=True, null=True)
+    post_index = models.IntegerField(blank=True, null=True)
     country = models.CharField(max_length=70, blank=False)
     region = models.CharField(max_length=80, blank=False)
     area = models.CharField(max_length=80, blank=True, null=True)

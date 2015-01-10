@@ -1,0 +1,51 @@
+Logging at WARNING level
+Logging at ERROR level
+Logging at WARNING level
+Logging at ERROR level
+Logging at WARNING level
+Logging at ERROR level
+Logging at WARNING level
+Logging at ERROR level
+Logging at WARNING level
+Logging at ERROR level
+2015-01-06 22:13:55.577848
+2015-01-06 22:15:28.076011 Logging at INFO level
+2015-01-06 22:15:30.501525 Logging at INFO level
+2015-01-06 22:20:42.786763 Logging at INFO level
+2015-01-06 22:35:21.139721student-DEBUG- edit student2
+2015-01-06 22:36:32.748370:student-DEBUG-edit student ID 4
+2015-01-06 22:36:32.783413:student-DEBUG-edit student ID 4
+2015-01-06 22:36:56.369221:student-DEBUG-edit student ID 1
+2015-01-06 22:40:58.165699:student-DEBUG-edit student ID 3
+2015-01-06 22:47:42.598610:student-DEBUG-add student ID 9
+Logging at INFO level
+Logging at INFO level
+2015-01-06 22:52:45.101076:student-DEBUG-delete student ID 8
+Logging at INFO level
+Logging at INFO level
+2015-01-06 22:57:32.604833:student-DEBUG-delete student ID 6
+2015-01-06 22:57:49.430827:student-DEBUG-delete student ID 5
+2015-01-06 23:16:04.687329:courses-DEBUG-edit course id= 10
+2015-01-06 23:41:44.737915:courses-DEBUG-edit course id= 10
+2015-01-06 23:43:35.161282:courses-DEBUG-edit course id= 10
+2015-01-06 23:44:29.679261:courses-DEBUG-edit course id= 10
+2015-01-06 23:45:23.008145:courses-DEBUG-edit course id= 10
+2015-01-06 23:47:24.476023:courses-DEBUG-edit course id= 10
+2015-01-06 23:48:04.312788:courses-DEBUG-edit course id= 10
+2015-01-06 23:51:20.946174:courses-DEBUG-edit course id= 10
+2015-01-06 23:51:47.920546:courses-DEBUG-edit course id= 4
+2015-01-06 23:54:39.188330:courses-DEBUG-add course id= 11
+2015-01-07 00:01:24.737296:courses-DEBUG-add course id= 12
+2015-01-07 00:01:24.849216:courses-DEBUG-add course id= 13
+2015-01-07 00:01:54.283670:courses-DEBUG-add course id= 14
+2015-01-07 00:01:54.395522:courses-DEBUG-add course id= 15
+2015-01-07 00:02:25.563976:courses-DEBUG-edit course id= 15
+2015-01-07 00:07:36.212362:courses-DEBUG-add course id= 17
+2015-01-07 00:08:38.591803:courses-DEBUG-add course id= 18
+2015-01-07 00:38:53.193695:abuses-DEBUG-send message to Дмитрий Дмитренко
+2015-01-07 00:38:53.250943:abuses-DEBUG-send message to Дмитрий Дмитренко
+2015-01-07 00:39:41.766998:abuses-DEBUG-send message to Дмитрий Дмитренко
+2015-01-07 00:39:41.902733:abuses-DEBUG-send message to Дмитрий Дмитренко
+2015-01-07 00:40:57.924473:abuses-DEBUG-send message to Юрий Юрьев
+2015-01-07 00:43:50.550421:student-DEBUG-add student id= 10
+2015-01-07 00:44:34.156387:student-WARNING-delete student id= 10
