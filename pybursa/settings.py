@@ -101,9 +101,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = ''
-STATIC_ROOT = ''
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files')
 EMAIL_HOST = 'smtp.mail.ru'
 EMAIL_PORT = '2525'
 EMAIL_HOST_USER = 'django_test@mail.ru'

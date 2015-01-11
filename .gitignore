@@ -1,2 +1,4 @@
 *.pyc
 *.pyo
+pybursa/local_settings.py
+*.log

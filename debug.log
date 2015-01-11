@@ -49,3 +49,4 @@ Logging at INFO level
 2015-01-07 00:40:57.924473:abuses-DEBUG-send message to Юрий Юрьев
 2015-01-07 00:43:50.550421:student-DEBUG-add student id= 10
 2015-01-07 00:44:34.156387:student-WARNING-delete student id= 10
+2015-01-10 21:28:40.118708:abuses-DEBUG-send message to Дмитрий Дмитренко
